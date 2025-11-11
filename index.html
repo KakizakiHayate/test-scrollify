@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-color: #e74c3c;
+            }
+
+            p::after {
+                content: " (SPtest)";
+            }
+        }
+
+        @media (min-width: 769px) {
+            p::after {
+                content: " (PC)";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Test Page</h1>
+        <p>Device Check</p>
+    </div>
+</body>
+</html>
