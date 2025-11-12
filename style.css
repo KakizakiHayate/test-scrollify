@@ -1,0 +1,659 @@
+/* ========================================
+   CSS Reset & Base Styles
+======================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* ========================================
+   CSS Variables (Design Tokens)
+======================================== */
+
+:root {
+    /* Colors - Based on Chrome DevTools MCP analysis */
+    --color-primary: #1D4ED8;      /* Blue */
+    --color-text-primary: rgb(51, 51, 51);  /* Dark Gray */
+    --color-text-secondary: rgb(34, 34, 34); /* Darker Gray */
+    --color-background: rgb(255, 255, 255);  /* White */
+    --color-white: rgb(255, 255, 255);      /* White for text */
+
+    /* Typography */
+    --font-primary: 'Noto Sans JP', sans-serif;
+    --font-accent: 'Poppins', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-icons: 'Material Icons';
+
+    /* Font Sizes - Desktop */
+    --font-size-hero: 48px;
+    --font-size-header-japanese: 48px;
+    --font-size-section-title: 32px;
+    --font-size-large: 24px;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+
+    /* Font Weights */
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+    --font-weight-normal: 400;
+
+    /* Layout */
+    --container-width: 1280px;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+
+    /* Animation - Based on original site analysis */
+    --animation-duration: 0.3s;
+    --animation-duration-slow: 0.6s;
+    --animation-easing: cubic-bezier(0.4, 0.4, 0, 1);
+}
+
+/* ========================================
+   Base Typography
+======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-family: var(--font-primary);
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   Card Fade-in Animation Styles
+======================================== */
+
+/* カード全体のフェードインアニメーション */
+.parallax-card {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.parallax-card.card-visible {
+    opacity: 1;
+}
+
+/* カード内の文字のフェードインアニメーション */
+.parallax-card__title,
+.parallax-card__text,
+.parallax-card__list-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.card-visible .parallax-card__title,
+.card-visible .parallax-card__text,
+.card-visible .parallax-card__list-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* テキストの遅延アニメーション */
+.card-visible .parallax-card__title {
+    transition-delay: 0.1s;
+}
+
+.card-visible .parallax-card__text:nth-of-type(1),
+.card-visible .parallax-card__list-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.card-visible .parallax-card__text:nth-of-type(2),
+.card-visible .parallax-card__list-item:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.card-visible .parallax-card__text:nth-of-type(3),
+.card-visible .parallax-card__list-item:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.card-visible .parallax-card__text:nth-of-type(4),
+.card-visible .parallax-card__list-item:nth-child(4) {
+    transition-delay: 0.5s;
+}
+
+/* GIFアニメーション（画像）のフェードイン */
+.parallax-card__icon,
+.parallax-card__icon img {
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+}
+
+.card-visible .parallax-card__icon,
+.card-visible .parallax-card__icon img {
+    opacity: 1;
+    transition-delay: 0.15s;
+}
+
+/* ========================================
+   Parallax Section - Generic Component
+======================================== */
+
+/* デフォルトCSS変数 */
+.parallax-section {
+    /* レイアウト */
+    --item-spacing: 300px;
+    --section-padding: 0;
+    --section-background: #ffffff;
+
+    /* ヘッダー */
+    --header-padding-top: 100px;
+    --header-max-width: 960px;
+    --header-gap: 12px;
+
+    /* ナンバーとタイトル */
+    --section-number-size: 24px;
+    --section-number-weight: 900;
+    --section-name-size: 24px;
+    --section-name-weight: 600;
+    --section-title-size: 40px;
+    --section-title-weight: 700;
+    --section-description-size: 24px;
+    --section-description-weight: 500;
+
+    /* カラー */
+    --section-text-color: var(--color-primary);
+    --section-description-color: #333333;
+    --card-border-color: #dcdfe4;
+
+    /* カード */
+    --card-gap: 40px;
+    --card-padding: 40px;
+    --card-icon-size: 356px;
+    --card-title-size: 28px;
+    --card-text-size: 24px;
+    --card-content-gap: 16px;
+    --card-background: #ffffff;
+
+    /* アニメーション */
+    --card-transition: transform 0.4s ease;
+
+    padding: var(--section-padding);
+    background: var(--section-background);
+    position: relative;
+}
+
+/* 白背景バリアント（Creation, Action） */
+.parallax-section--light {
+    --section-background: #ffffff;
+    --section-text-color: var(--color-primary);
+    --section-description-color: #333333;
+    --card-background: #ffffff;
+    --light-section-bottom-gap: max(160px, calc(100vh - 560px));
+
+    padding: 0 80px 120px;
+}
+
+.parallax-section--light::after {
+    content: '';
+    display: block;
+    height: var(--light-section-bottom-gap);
+    background: var(--section-background);
+}
+
+/* 青背景バリアント（Verification, Enlargement） */
+.parallax-section--dark {
+    --section-background: #1d4ed8;
+    --section-text-color: #FFFFFF;
+    --section-description-color: #FFFFFF;
+    --card-background: transparent;
+    --item-spacing: 280px;
+    --dark-section-bottom-gap: max(160px, calc(100vh - 560px));
+
+    padding: 0 80px 120px;
+    opacity: 1;
+    border-radius: 0;
+    transition: border-radius 0.8s ease, opacity 0.8s ease;
+}
+
+/* スクロールで表示されたとき: 四角形 */
+.parallax-section--dark.shape-morphed {
+    border-radius: 0;
+    opacity: 1;
+}
+
+.parallax-section--dark::after {
+    content: '';
+    display: block;
+    height: var(--dark-section-bottom-gap);
+    background: var(--section-background);
+}
+
+/* ========================================
+   Generic Parallax Section Styles (BEM)
+======================================== */
+
+/* ヘッダー */
+.parallax-section__header {
+    position: relative;
+    background: var(--card-background);
+    width: 100%;
+    padding-top: var(--header-padding-top);
+    max-width: var(--header-max-width);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 2px;
+}
+
+.parallax-section__header--spacer {
+    visibility: hidden;
+    margin-bottom: 0;
+    margin-top: calc(-1 * var(--item-spacing));
+}
+
+.parallax-section__label {
+    display: flex;
+    align-items: center;
+    gap: var(--header-gap);
+    pointer-events: auto;
+}
+
+.parallax-section__number {
+    font-family: var(--font-roboto);
+    font-size: var(--section-number-size);
+    font-weight: var(--section-number-weight);
+    color: var(--section-text-color);
+    pointer-events: auto;
+}
+
+.parallax-section__name {
+    font-family: var(--font-accent);
+    font-size: var(--section-name-size);
+    font-weight: var(--section-name-weight);
+    color: var(--section-text-color);
+    pointer-events: auto;
+}
+
+.parallax-section__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.parallax-section__title {
+    font-family: var(--font-primary);
+    font-size: var(--section-title-size);
+    font-weight: var(--section-title-weight);
+    color: var(--section-text-color);
+    text-align: left;
+    margin: 0;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    pointer-events: auto;
+}
+
+.parallax-section__description {
+    font-family: var(--font-primary);
+    font-size: var(--section-description-size);
+    font-weight: var(--section-description-weight);
+    color: var(--section-description-color);
+    text-align: left;
+    margin-bottom: 0;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    pointer-events: auto;
+}
+
+/* コンテナとアイテム */
+.parallax-section .parallax-container {
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.parallax-section .parallax-item {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1;
+    gap: var(--card-gap);
+}
+
+.parallax-section .parallax-item:not(:first-child) {
+    padding-top: var(--item-spacing);
+}
+
+/* カードスタイル */
+.parallax-section .parallax-card {
+    display: flex;
+    align-items: center;
+    gap: var(--card-gap);
+    background: var(--card-background);
+    border-left: 2px solid var(--card-border-color);
+    border-radius: 0;
+    box-shadow: none;
+    transition: var(--card-transition);
+    position: relative;
+    padding: var(--card-padding);
+    max-width: var(--header-max-width);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.parallax-section .parallax-card:hover {
+    transform: none;
+}
+
+.parallax-section .parallax-card__icon {
+    flex-shrink: 0;
+    width: var(--card-icon-size);
+    height: var(--card-icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.parallax-section .parallax-card__icon img {
+    width: var(--card-icon-size);
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.parallax-section .parallax-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-content-gap);
+}
+
+.parallax-section .parallax-card__title {
+    font-size: var(--card-title-size);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    font-weight: var(--font-weight-bold);
+    color: var(--section-text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.parallax-section .parallax-card__text {
+    font-family: var(--font-primary);
+    font-size: var(--card-text-size);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--section-description-color);
+}
+
+.parallax-section .parallax-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.parallax-section .parallax-card__list-item {
+    font-family: var(--font-primary);
+    font-size: var(--card-text-size);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--section-description-color);
+}
+
+/* 青背景セクション用の追加スタイル */
+.parallax-section--dark .parallax-section__header {
+    background: transparent;
+}
+
+.parallax-section--dark .parallax-card {
+    margin-top: 24px;
+}
+
+.parallax-section--dark .parallax-card:first-child {
+    margin-top: 0;
+}
+
+/* ========================================
+   process-details wrapper
+======================================== */
+
+.process-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   Responsive Styles - Mobile (750px以下)
+======================================== */
+
+@media (max-width: 750px) {
+    /* パララックスセクション全体の調整 */
+    .parallax-section {
+        padding: 40px 16px 60px;
+
+        /* カード変数の上書き */
+        --card-gap: 40px;
+        --card-padding: 0 0 0 20px;
+        --card-icon-size: 100%;
+        --card-title-size: 20px;
+        --card-text-size: 16px;
+        --card-content-gap: 16px;
+    }
+
+    .parallax-section--light {
+        padding: 40px 16px 60px;
+    }
+
+    .parallax-section--dark {
+        padding: 40px 16px 80px;
+    }
+
+    /* パララックスコンテナ */
+    .parallax-section .parallax-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* パララックスアイテム間の間隔を調整 */
+    .parallax-section .parallax-item {
+        gap: 40px;
+        padding: 0;
+        position: relative;
+        margin-bottom: 80px;
+    }
+
+    .parallax-section .parallax-item:not(:first-child) {
+        padding-top: 0;
+    }
+
+    .parallax-section .parallax-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ヘッダー */
+    .parallax-section__header {
+        padding-top: 40px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 40px;
+        max-width: 100%;
+        gap: 0;
+    }
+
+    .parallax-section__header--spacer {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .parallax-section__label {
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+
+    .parallax-section__number {
+        font-size: 18px;
+    }
+
+    .parallax-section__name {
+        font-size: 18px;
+    }
+
+    .parallax-section__title-wrapper {
+        gap: 16px;
+    }
+
+    .parallax-section__title {
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+
+    .parallax-section__description {
+        font-size: 18px;
+        line-height: 1.6;
+        letter-spacing: 0.04em;
+        margin: 0;
+    }
+
+    /* カードレイアウト - SP版は縦並び(上:テキスト、下:画像) */
+    .parallax-section .parallax-card {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 0 0 0 20px;
+        gap: 40px;
+        margin: 0;
+        max-width: 100%;
+        border-left: 2px solid var(--card-border-color);
+        border-top: none;
+    }
+
+    /* コンテンツ(テキスト)を上部に配置 */
+    .parallax-section .parallax-card__content {
+        order: 1;
+        gap: 10px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
+    }
+
+    .parallax-section .parallax-card__title {
+        font-size: 20px;
+        margin-bottom: 0;
+        font-weight: 700;
+        color: var(--section-text-color);
+        line-height: 1.4;
+        letter-spacing: 0.04em;
+    }
+
+    .parallax-section .parallax-card__text {
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.8;
+        color: var(--section-description-color);
+    }
+
+    .parallax-section .parallax-card__list {
+        gap: 6px;
+        padding: 0;
+    }
+
+    .parallax-section .parallax-card__list-item {
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        line-height: 1.8;
+        color: #333333;
+    }
+
+    /* アイコン(画像)を下部に配置 */
+    .parallax-section .parallax-card__icon {
+        order: 2;
+        width: 44%;
+        height: auto;
+        min-height: auto;
+        max-width: 44%;
+        margin: 0;
+        padding: 0;
+        flex: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .parallax-section .parallax-card__icon img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+/* ========================================
+   Responsive Styles - Tablet (769px - 1024px)
+======================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    :root {
+        --container-width: 768px;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .parallax-card,
+    .parallax-card__title,
+    .parallax-card__text,
+    .parallax-card__list-item,
+    .parallax-card__icon,
+    .parallax-card__icon img {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
