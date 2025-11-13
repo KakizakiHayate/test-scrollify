@@ -219,17 +219,18 @@ ul, ol {
     --section-text-color: var(--color-primary);
     --section-description-color: #333333;
     --card-background: #ffffff;
+    --item-spacing: 240px;
     --light-section-bottom-gap: max(160px, calc(100vh - 560px));
 
     padding: 0 80px 120px;
 }
 
-.parallax-section--light::after {
+/* .parallax-section--light::after {
     content: '';
     display: block;
     height: var(--light-section-bottom-gap);
     background: var(--section-background);
-}
+} */
 
 /* 青背景バリアント（Verification, Enlargement） */
 .parallax-section--dark {
@@ -237,7 +238,7 @@ ul, ol {
     --section-text-color: #FFFFFF;
     --section-description-color: #FFFFFF;
     --card-background: transparent;
-    --item-spacing: 280px;
+    --item-spacing: 240px;
     --dark-section-bottom-gap: max(160px, calc(100vh - 560px));
 
     padding: 0 80px 120px;
@@ -252,12 +253,12 @@ ul, ol {
     opacity: 1;
 }
 
-.parallax-section--dark::after {
+/* .parallax-section--dark::after {
     content: '';
     display: block;
     height: var(--dark-section-bottom-gap);
     background: var(--section-background);
-}
+} */
 
 /* ========================================
    Generic Parallax Section Styles (BEM)
