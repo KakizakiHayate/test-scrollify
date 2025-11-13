@@ -504,13 +504,14 @@ ul, ol {
     /* パララックスアイテム間の間隔を調整 */
     .parallax-section .parallax-item {
         gap: 40px;
+        position: sticky;
+        top: 0;
         padding: 0;
-        position: relative;
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 
     .parallax-section .parallax-item:not(:first-child) {
-        padding-top: 0;
+        padding-top: 240px;
     }
 
     .parallax-section .parallax-item:last-child {
