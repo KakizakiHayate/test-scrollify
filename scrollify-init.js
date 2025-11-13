@@ -17,6 +17,26 @@ $(function() {
     // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
     window.scrollTo(0, 0);
 
+    // E. intro-section と detail-section の高さを動的に設定（古いブラウザ対応）
+    // dvhをサポートしていないブラウザのためのフォールバック
+    const setDynamicHeights = () => {
+        const viewportHeight = window.innerHeight;
+
+        // intro-sectionの高さを設定
+        $('.intro-section').each(function() {
+            $(this).css('height', viewportHeight + 'px');
+        });
+
+        // detail-sectionの高さを設定
+        $('.detail-section').css('height', (viewportHeight + 100) + 'px');
+    };
+
+    // 初期設定
+    setDynamicHeights();
+
+    // 画面回転・リサイズ時に再計算
+    $(window).on('resize orientationchange', setDynamicHeights);
+
     const $allSections = $('.js-section');
 
     // Scrollify の設定
