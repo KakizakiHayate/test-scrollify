@@ -4,6 +4,9 @@
  */
 
 $(function() {
+    // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
+    window.scrollTo(0, 0);
+
     const $allSections = $('.js-section');
 
     // Scrollify の設定
@@ -34,8 +37,14 @@ $(function() {
         }
     };
 
-    // Scrollify を初期化
-    $.scrollify(scrollifyOptions);
+    // A. 画像読み込み完了後にScrollifyを初期化
+    $(window).on('load', function() {
+        console.log('All images loaded. Initializing Scrollify...');
+        $.scrollify(scrollifyOptions);
+
+        // 初期化後もう一度スクロール位置をリセット
+        window.scrollTo(0, 0);
+    });
 
     /**
      * 現在のセクションにクラスを設定
