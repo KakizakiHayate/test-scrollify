@@ -166,6 +166,80 @@ ul, ol {
 }
 
 /* ========================================
+   Intro Section - 100vh セクション
+======================================== */
+
+.intro-section {
+    height: 100vh;      /* 古いブラウザ用フォールバック */
+    height: 100dvh;     /* モダンブラウザ用（Dynamic Viewport Height） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.intro-section__content {
+    text-align: center;
+}
+
+.intro-section__title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* 各セクションの背景色 */
+.intro-section--1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.intro-section--2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.intro-section--3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.intro-section--4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* ========================================
+   Detail Section - 通常スクロールセクション
+======================================== */
+
+.detail-section {
+    height: calc(100vh + 100px);      /* 古いブラウザ用フォールバック */
+    height: calc(100dvh + 100px);     /* モダンブラウザ用 */
+    background: #f8f9fa;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-section__content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.detail-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-text-primary);
+}
+
+.detail-section__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
    Parallax Section - Generic Component
 ======================================== */
 
@@ -219,17 +293,18 @@ ul, ol {
     --section-text-color: var(--color-primary);
     --section-description-color: #333333;
     --card-background: #ffffff;
+    --item-spacing: 240px;
     --light-section-bottom-gap: max(160px, calc(100vh - 560px));
 
     padding: 0 80px 120px;
 }
 
-.parallax-section--light::after {
+/* .parallax-section--light::after {
     content: '';
     display: block;
     height: var(--light-section-bottom-gap);
     background: var(--section-background);
-}
+} */
 
 /* 青背景バリアント（Verification, Enlargement） */
 .parallax-section--dark {
@@ -237,7 +312,7 @@ ul, ol {
     --section-text-color: #FFFFFF;
     --section-description-color: #FFFFFF;
     --card-background: transparent;
-    --item-spacing: 280px;
+    --item-spacing: 240px;
     --dark-section-bottom-gap: max(160px, calc(100vh - 560px));
 
     padding: 0 80px 120px;
@@ -252,12 +327,12 @@ ul, ol {
     opacity: 1;
 }
 
-.parallax-section--dark::after {
+/* .parallax-section--dark::after {
     content: '';
     display: block;
     height: var(--dark-section-bottom-gap);
     background: var(--section-background);
-}
+} */
 
 /* ========================================
    Generic Parallax Section Styles (BEM)
@@ -473,6 +548,26 @@ ul, ol {
 ======================================== */
 
 @media (max-width: 750px) {
+    /* Intro Section - SP */
+    .intro-section__title {
+        font-size: 2rem;
+    }
+
+    /* Detail Section - SP */
+    .detail-section {
+        padding: 40px 20px;
+        height: calc(100vh + 100px);      /* 古いブラウザ用フォールバック */
+        height: calc(100dvh + 100px);     /* モダンブラウザ用 */
+    }
+
+    .detail-section__title {
+        font-size: 1.75rem;
+    }
+
+    .detail-section__text {
+        font-size: 1rem;
+    }
+
     /* パララックスセクション全体の調整 */
     .parallax-section {
         padding: 40px 16px 60px;
@@ -503,13 +598,14 @@ ul, ol {
     /* パララックスアイテム間の間隔を調整 */
     .parallax-section .parallax-item {
         gap: 40px;
+        position: sticky;
+        top: 0;
         padding: 0;
-        position: relative;
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 
     .parallax-section .parallax-item:not(:first-child) {
-        padding-top: 0;
+        padding-top: 240px;
     }
 
     .parallax-section .parallax-item:last-child {
