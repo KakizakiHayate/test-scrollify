@@ -8,6 +8,11 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
+// D. URLハッシュを削除（常に一番上から開始）
+if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+}
+
 $(function() {
     // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
     window.scrollTo(0, 0);
