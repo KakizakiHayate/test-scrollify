@@ -3,6 +3,11 @@
  * スムーズなセクションスクロール制御とカードアニメーション
  */
 
+// C. ブラウザの自動スクロール復元を無効化（最優先で実行）
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 $(function() {
     // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
     window.scrollTo(0, 0);
