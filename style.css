@@ -178,6 +178,7 @@ ul, ol {
     font-size: 2rem;
     font-weight: 700;
     color: white;
+    position: relative; /* z-indexを有効にするため */
 }
 
 .intro-section__content {
@@ -189,21 +190,25 @@ ul, ol {
     font-weight: 700;
 }
 
-/* 各セクションの背景色 */
+/* 各セクションの背景色 & z-index（重なり順序） */
 .intro-section--1 {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1;
 }
 
 .intro-section--2 {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    z-index: 2;
 }
 
 .intro-section--3 {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    z-index: 3;
 }
 
 .intro-section--4 {
     background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    z-index: 4;
 }
 
 /* ========================================
