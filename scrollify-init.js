@@ -65,7 +65,7 @@ $(function() {
         afterRender: function() {
             setCurrent();
         }
-    };
+    }; 
 
     // A. 画像読み込み完了後にScrollifyを初期化
     $(window).on('load', function() {
