@@ -30,7 +30,7 @@ console.log('🔵 [scrollify-init.js] Waiting for DOMContentLoaded...');
 
 $(function() {
     console.log('✅ [scrollify-init.js] jQuery ready (DOMContentLoaded)');
-    console.log('🔵 [scrollify-init.js] .js-section count:', $('..js-section').length);
+    console.log('🔵 [scrollify-init.js] .js-section count:', $('.js-section').length);
     // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
     window.scrollTo(0, 0);
 
