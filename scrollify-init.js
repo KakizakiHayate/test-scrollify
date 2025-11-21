@@ -3,17 +3,34 @@
  * スムーズなセクションスクロール制御とカードアニメーション
  */
 
+console.log('🔵 [scrollify-init.js] File loaded');
+console.log('🔵 [scrollify-init.js] User Agent:', navigator.userAgent);
+console.log('🔵 [scrollify-init.js] Screen size:', window.innerWidth + 'x' + window.innerHeight);
+
+// ライブラリの読み込み確認
+console.log('🔵 [scrollify-init.js] jQuery available:', typeof jQuery !== 'undefined');
+if (typeof jQuery !== 'undefined') {
+    console.log('🔵 [scrollify-init.js] jQuery version:', jQuery.fn.jquery);
+    console.log('🔵 [scrollify-init.js] $.scrollify available:', typeof $.scrollify !== 'undefined');
+}
+
 // C. ブラウザの自動スクロール復元を無効化（最優先で実行）
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
+    console.log('✅ [scrollify-init.js] scrollRestoration set to manual');
 }
 
 // D. URLハッシュを削除（常に一番上から開始）
 if (window.location.hash) {
     history.replaceState(null, null, window.location.pathname + window.location.search);
+    console.log('✅ [scrollify-init.js] URL hash removed');
 }
 
+console.log('🔵 [scrollify-init.js] Waiting for DOMContentLoaded...');
+
 $(function() {
+    console.log('✅ [scrollify-init.js] jQuery ready (DOMContentLoaded)');
+    console.log('🔵 [scrollify-init.js] .js-section count:', $('..js-section').length);
     // B. スクロール位置をリセット（ブラウザの復元を防ぐ）
     window.scrollTo(0, 0);
 
@@ -33,9 +50,11 @@ $(function() {
 
     // 初期設定
     setDynamicHeights();
+    console.log('✅ [scrollify-init.js] Dynamic heights set');
 
     // 画面回転・リサイズ時に再計算
     $(window).on('resize orientationchange', setDynamicHeights);
+    console.log('✅ [scrollify-init.js] Resize/orientation listeners added');
 
     const $allSections = $('.js-section');
 
@@ -68,13 +87,30 @@ $(function() {
     };
 
     // A. 画像読み込み完了後にScrollifyを初期化
+    console.log('🔵 [scrollify-init.js] Registering window.load listener...');
+
     $(window).on('load', function() {
-        console.log('All images loaded. Initializing Scrollify...');
+        console.log('🎉 [scrollify-init.js] window.load event fired!');
+        console.log('🔵 [scrollify-init.js] $.scrollify available:', typeof $.scrollify !== 'undefined');
+
+        if (typeof $.scrollify === 'undefined') {
+            console.error('❌ [scrollify-init.js] $.scrollify is NOT available');
+            return;
+        }
+
+        console.log('🔵 [scrollify-init.js] Initializing Scrollify with options:', scrollifyOptions);
         $.scrollify(scrollifyOptions);
+        console.log('✅ [scrollify-init.js] Scrollify initialized successfully');
 
         // 初期化後もう一度スクロール位置をリセット
         window.scrollTo(0, 0);
+        console.log('✅ [scrollify-init.js] Scroll position reset');
     });
+
+    // タイムアウト検出用
+    setTimeout(function() {
+        console.warn('⚠️ [scrollify-init.js] 10 seconds passed, checking if load event fired...');
+    }, 10000);
 
     /**
      * 現在のセクションにクラスを設定
@@ -165,4 +201,6 @@ $(function() {
 
     // 初期化
     initializeHeaders();
+    console.log('✅ [scrollify-init.js] Headers initialized');
+    console.log('✅ [scrollify-init.js] jQuery ready function completed');
 });
