@@ -86,31 +86,6 @@ $(function() {
         }
     };
 
-    // A. 画像読み込み完了後にScrollifyを初期化
-    console.log('🔵 [scrollify-init.js] Registering window.load listener...');
-
-    $(window).on('load', function() {
-        console.log('🎉 [scrollify-init.js] window.load event fired!');
-        console.log('🔵 [scrollify-init.js] $.scrollify available:', typeof $.scrollify !== 'undefined');
-
-        if (typeof $.scrollify === 'undefined') {
-            console.error('❌ [scrollify-init.js] $.scrollify is NOT available');
-            return;
-        }
-
-        console.log('🔵 [scrollify-init.js] Initializing Scrollify with options:', scrollifyOptions);
-        $.scrollify(scrollifyOptions);
-        console.log('✅ [scrollify-init.js] Scrollify initialized successfully');
-
-        // 初期化後もう一度スクロール位置をリセット
-        window.scrollTo(0, 0);
-        console.log('✅ [scrollify-init.js] Scroll position reset');
-    });
-
-    // タイムアウト検出用
-    setTimeout(function() {
-        console.warn('⚠️ [scrollify-init.js] 10 seconds passed, checking if load event fired...');
-    }, 10000);
 
     /**
      * 現在のセクションにクラスを設定
@@ -202,5 +177,22 @@ $(function() {
     // 初期化
     initializeHeaders();
     console.log('✅ [scrollify-init.js] Headers initialized');
+
+    // Scrollifyを初期化（DOMContentLoaded直後）
+    console.log('🔵 [scrollify-init.js] Initializing Scrollify...');
+    console.log('🔵 [scrollify-init.js] $.scrollify available:', typeof $.scrollify !== 'undefined');
+
+    if (typeof $.scrollify === 'undefined') {
+        console.error('❌ [scrollify-init.js] $.scrollify is NOT available');
+    } else {
+        console.log('🔵 [scrollify-init.js] Initializing Scrollify with options:', scrollifyOptions);
+        $.scrollify(scrollifyOptions);
+        console.log('✅ [scrollify-init.js] Scrollify initialized successfully');
+
+        // 初期化後もう一度スクロール位置をリセット
+        window.scrollTo(0, 0);
+        console.log('✅ [scrollify-init.js] Scroll position reset');
+    }
+
     console.log('✅ [scrollify-init.js] jQuery ready function completed');
 });
