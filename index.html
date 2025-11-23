@@ -11,12 +11,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Poppins:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 100vh セクション × 4 (1スクロール1セクション) -->
+    <section class="intro-section intro-section--1 js-section" data-section-name="intro-1">
+        <div class="intro-section__content">
+            <h2 class="intro-section__title">Introduction 1</h2>
+        </div>
+    </section>
+
+    <section class="intro-section intro-section--2 js-section" data-section-name="intro-2">
+        <div class="intro-section__content">
+            <h2 class="intro-section__title">Introduction 2</h2>
+        </div>
+    </section>
+
+    <section class="intro-section intro-section--3 js-section" data-section-name="intro-3">
+        <div class="intro-section__content">
+            <h2 class="intro-section__title">Introduction 3</h2>
+        </div>
+    </section>
+
+    <section class="intro-section intro-section--4 js-section" data-section-name="intro-4">
+        <div class="intro-section__content">
+            <h2 class="intro-section__title">Introduction 4</h2>
+        </div>
+    </section>
+
+    <!-- 100vh + 100px 通常スクロールセクション -->
+    <section class="detail-section normal-scroll">
+        <div class="detail-section__content">
+            <h2 class="detail-section__title">Detail Section</h2>
+            <p class="detail-section__text">このセクションは通常スクロールが可能です。</p>
+        </div>
+    </section>
+
     <div class="process-details">
         <!-- Creation Phase with Parallax -->
         <section class="parallax-section parallax-section--light" aria-labelledby="creation-heading">
             <div class="parallax-container">
                 <!-- Card 1: 課題発見 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card1-1">
                     <header class="parallax-section__header">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">01.</span>
@@ -31,7 +64,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/creation-01.gif" alt="課題発見のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/creation-01.gif" alt="課題発見のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">課題発見</h4>
@@ -43,10 +76,22 @@
                 </div>
 
                 <!-- Card 2: トレンド分析 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card1-2">
+                    <header class="parallax-section__header parallax-section__header--spacer">
+                        <div class="parallax-section__label">
+                            <span class="parallax-section__number">01.</span>
+                            <h3 class="parallax-section__name">creation</h3>
+                        </div>
+                        <div class="parallax-section__title-wrapper">
+                            <h4 class="parallax-section__title">新規事業の創造</h4>
+                            <p class="parallax-section__description">
+                            新規事業は「やりたいこと」から始めると失敗することが多く、まず「社会や顧客が抱える課題」を起点にするのが基本です。
+                        </p>
+                        </div>
+                    </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/creation-02.gif" alt="トレンド分析のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/creation-02.gif" alt="トレンド分析のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">トレンド分析</h4>
@@ -61,10 +106,22 @@
                 </div>
 
                 <!-- Card 3: アイデア創出 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card1-3">
+                    <header class="parallax-section__header parallax-section__header--spacer">
+                        <div class="parallax-section__label">
+                            <span class="parallax-section__number">01.</span>
+                            <h3 class="parallax-section__name">creation</h3>
+                        </div>
+                        <div class="parallax-section__title-wrapper">
+                            <h4 class="parallax-section__title">新規事業の創造</h4>
+                            <p class="parallax-section__description">
+                            新規事業は「やりたいこと」から始めると失敗することが多く、まず「社会や顧客が抱える課題」を起点にするのが基本です。
+                        </p>
+                        </div>
+                    </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/creation-03.gif" alt="アイデア創出のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/creation-03.gif" alt="アイデア創出のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">アイデア創出</h4>
@@ -77,10 +134,22 @@
                 </div>
 
                 <!-- Card 4: 仮説設定 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card1-4">
+                    <header class="parallax-section__header parallax-section__header--spacer">
+                        <div class="parallax-section__label">
+                            <span class="parallax-section__number">01.</span>
+                            <h3 class="parallax-section__name">creation</h3>
+                        </div>
+                        <div class="parallax-section__title-wrapper">
+                            <h4 class="parallax-section__title">新規事業の創造</h4>
+                            <p class="parallax-section__description">
+                            新規事業は「やりたいこと」から始めると失敗することが多く、まず「社会や顧客が抱える課題」を起点にするのが基本です。
+                        </p>
+                        </div>
+                    </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/creation-04.gif" alt="仮説設定のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/creation-04.gif" alt="仮説設定のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">仮説設定</h4>
@@ -100,7 +169,7 @@
         <section class="parallax-section parallax-section--dark" aria-labelledby="verification-heading">
             <div class="parallax-container">
                 <!-- Card 1: 市場調査 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card2-1">
                     <header class="parallax-section__header">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">02.</span>
@@ -115,7 +184,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/verification-01.gif" alt="市場調査のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/verification-01.gif" alt="市場調査のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">市場調査</h4>
@@ -126,7 +195,7 @@
                 </div>
 
                 <!-- Card 2: 顧客インタビュー -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card2-2">
                     <header class="parallax-section__header parallax-section__header--spacer">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">02.</span>
@@ -141,7 +210,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/verification-02.gif" alt="顧客インタビューのイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/verification-02.gif" alt="顧客インタビューのイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">顧客インタビュー</h4>
@@ -152,7 +221,7 @@
                 </div>
 
                 <!-- Card 3: MVP開発 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card2-3">
                     <header class="parallax-section__header parallax-section__header--spacer">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">02.</span>
@@ -167,7 +236,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/verification-03.gif" alt="MVP開発のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/verification-03.gif" alt="MVP開発のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">MVP開発</h4>
@@ -178,7 +247,7 @@
                 </div>
 
                 <!-- Card 4: 仮説検証 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card2-4">
                     <header class="parallax-section__header parallax-section__header--spacer">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">02.</span>
@@ -193,7 +262,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/verification-04.gif" alt="仮説検証のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/verification-04.gif" alt="仮説検証のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">仮説検証</h4>
@@ -209,7 +278,7 @@
         <section class="parallax-section parallax-section--light" aria-labelledby="action-heading">
             <div class="parallax-container">
                 <!-- Card 1: ビジネスモデル設計 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card3-1">
                     <header class="parallax-section__header">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">03.</span>
@@ -224,7 +293,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/action-01.gif" alt="ビジネスモデル設計のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/action-01.gif" alt="ビジネスモデル設計のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">ビジネスモデル設計</h4>
@@ -246,7 +315,7 @@
                 </div>
 
                 <!-- Card 2: PoC（コンセプトの確認） -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card3-2">
                     <header class="parallax-section__header parallax-section__header--spacer" aria-hidden="true">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">03.</span>
@@ -261,7 +330,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/action-02.gif" alt="PoCのイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/action-02.gif" alt="PoCのイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__list">
                             <h4 class="parallax-card__title">PoC（コンセプトの確認）</h4>
@@ -271,7 +340,7 @@
                 </div>
 
                 <!-- Card 3: 改善とピボット -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card3-3">
                     <header class="parallax-section__header parallax-section__header--spacer" aria-hidden="true">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">03.</span>
@@ -286,7 +355,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/action-03.gif" alt="改善とピボットのイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/action-03.gif" alt="改善とピボットのイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">改善とピボット</h4>
@@ -297,7 +366,7 @@
                 </div>
 
                 <!-- Card 4: 資金・人材確保 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card3-4">
                     <header class="parallax-section__header parallax-section__header--spacer" aria-hidden="true">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">03.</span>
@@ -312,7 +381,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/action-04.gif" alt="資金・人材確保のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/action-04.gif" alt="資金・人材確保のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__list">
                             <h4 class="parallax-card__title">資金・人材確保</h4>
@@ -330,7 +399,7 @@
         <section class="parallax-section parallax-section--dark" aria-labelledby="enlargement-heading">
             <div class="parallax-container">
                 <!-- Card 1: 本格ローンチ -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card4-1">
                     <header class="parallax-section__header">
                         <div class="parallax-section__label">
                             <span class="parallax-section__number">04.</span>
@@ -345,7 +414,7 @@
                     </header>
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/enlargement-01.gif" alt="本格ローンチのイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/enlargement-01.gif" alt="本格ローンチのイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">本格ローンチ</h4>
@@ -355,10 +424,10 @@
                 </div>
 
                 <!-- Card 2: KPI設計と管理 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card4-2">
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/enlargement-02.gif" alt="KPI設計と管理のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/enlargement-02.gif" alt="KPI設計と管理のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">KPI設計と管理</h4>
@@ -368,10 +437,10 @@
                 </div>
 
                 <!-- Card 3: 組織化 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card4-3">
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/enlargement-03.gif" alt="組織化のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/enlargement-03.gif" alt="組織化のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">組織化</h4>
@@ -382,10 +451,10 @@
                 </div>
 
                 <!-- Card 4: 持続的改善 -->
-                <div class="parallax-item">
+                <div class="parallax-item js-section" data-section-name="card4-4">
                     <article class="parallax-card">
                         <figure class="parallax-card__icon">
-                            <img src="./assets/enlargement-04.gif" alt="持続的改善のイメージ図" width="356" height="356">
+                            <img src="https://11e4cda8.bridgeport.pages.dev/enlargement-04.gif" alt="持続的改善のイメージ図" width="356" height="356">
                         </figure>
                         <div class="parallax-card__content">
                             <h4 class="parallax-card__title">持続的改善</h4>
@@ -404,11 +473,22 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>console.log('🔴 [HTML] jQuery loaded:', typeof jQuery !== 'undefined');</script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script>console.log('🔴 [HTML] GSAP loaded:', typeof gsap !== 'undefined');</script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>console.log('🔴 [HTML] ScrollTrigger loaded:', typeof ScrollTrigger !== 'undefined');</script>
 
     <!-- Scrollify -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-scrollify@1.0.21/jquery.scrollify.min.js"></script>
+    <script>if (typeof jQuery !== 'undefined') console.log('🔴 [HTML] Scrollify loaded:', typeof jQuery.fn.scrollify !== 'undefined');</script>
 
     <!-- Scrollify Initialization -->
     <script src="./scrollify-init.js"></script>
+
+    <!-- Intro Section Overlap Animation -->
+    <script src="./intro-animation.js"></script>
 </body>
 </html>
